@@ -11,6 +11,21 @@
 |
 */
 
+// Bind route parameters.
+Route::model('position', 'Position');
+
+// Show pages.
+Route::get('/', 'PositionsController@index');
+Route::get('/create', 'PositionsController@create');
+Route::get('/edit/{position}', 'PositionsController@edit');
+Route::get('/delete/{position}', 'PositionsController@delete');
+
+// Handle form submissions.
+Route::post('/create', 'PositionsController@handleCreate');
+Route::post('/edit', 'PositionsController@handleEdit');
+Route::post('/delete', 'PositionsController@handleDelete');
+
+
 Route::get('/debug', function() {
 		echo '<pre>';
 		echo '<h1>environment.php</h1>';
@@ -46,3 +61,32 @@ Route::get('/debug', function() {
 		echo '</pre>';
 
 });
+
+/*Route::get('/', function()
+{
+        //return View::make('main');
+
+		$position = new Position;
+		$position->symbol = 'IBM';
+		$position->shares = '100';
+		$position->owner = 'cnsdws';
+		$position->save();
+
+}); */
+
+Route::get('/find', function()
+{
+        //return View::make('main');
+
+		return Position::whereSymbol('IBM')
+		->get(array('symbol', 'shares'));
+
+});
+
+Route::get('/add', function()
+{
+        return View::make('add');
+
+});
+
+
