@@ -27,8 +27,6 @@
 			{{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 			<a href="{{ action('PositionsController@index') }}" class="btn btn-link">Cancel</a>
 		</form>
-
-	
                         
 @stop
 

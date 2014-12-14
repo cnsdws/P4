@@ -52,16 +52,22 @@ class PositionsController extends BaseController {
 
 	}
 
-	public function delete()
+	public function delete(Position $position)
 	{
 		// Show delete confirmation page.
+		return View::make('delete', compact('position'));
 		
 	}
 
 	public function handleDelete()
 	{
 		// Handle the delete confirmation.
-		
+		$id = Input::get('position');
+		$position = Position::findOrFail($id);
+		$position->delete();
+
+		return Redirect::action('PositionsController@index');
+
 	}
 
 	public function handleTransaction()
