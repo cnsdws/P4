@@ -44,10 +44,7 @@
 					</tbody>
 				</table>
 			@endif
-			<?php
-			$user = Auth::id();
-			echo $user;
-			?>
+			
                         
 @stop
 
