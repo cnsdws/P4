@@ -22,7 +22,7 @@
 {{ Form::close() }}
 
 or
-<a href='/p4/public/signup'>Sign up</a>
+<a href='/signup'>Sign up</a>
 
 @stop
                         
