@@ -19,6 +19,7 @@ Route::get('/', 'PositionsController@index');
 Route::get('/create', 'PositionsController@create');
 Route::get('/edit/{position}', 'PositionsController@edit');
 Route::get('/delete/{position}', 'PositionsController@delete');
+Route::get('/list', 'TransactionsController@listTransactions');
 
 // Handle form submissions.
 Route::post('/create', 'PositionsController@handleCreate');

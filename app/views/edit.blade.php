@@ -28,7 +28,9 @@
 					<label for="price">Price</label>
 				</div>
 				<input type="submit" value="Save" class="btn btn-primary" />
+
 				<a href="{{ action('PositionsController@index') }}" class="btn btn-link">Cancel</a>
+				
 				</form>
 			</p>
                         

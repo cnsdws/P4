@@ -45,6 +45,8 @@
         </div><!--/.nav-collapse -->
         <a href="{{ action('PositionsController@index') }}" class="navbar-brand">Stock Positions</a>
         <a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Position</a>
+        <a href="{{ action('TransactionsController@listTransactions') }}" class="navbar-brand">List Transactions</a>
+      </div>
       </div>
   </div>
     <br>

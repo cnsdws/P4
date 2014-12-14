@@ -4,14 +4,14 @@
 <link href="../public/css/bootstrap.css" rel="stylesheet">
 @stop
 
-@section('Index')
+@section('Transactions')
 
 <h1 class="media-heading">Project 4 - Stock Tracker</h1>
     <!-- Main page section for the Lorem text generator -->
         <h3>Stock Portfolio Management</h3>
             
-            @if ($positions->isEmpty())
-				<p>There are no stock positions! </p>
+            @if ($transactions->isEmpty())
+				<p>There are no stock transactions! </p>
 
 			@else
 				<table class="table table-striped">
@@ -20,18 +20,16 @@
 							<th>Symbol</th>
 							<th>Shares</th>
 							<th>Price</th>
-							<th>Actions</th>
 						</tr>
 					</thead>
 
 					<tbody>
-						@foreach($positions as $position)
+						@foreach($transactions as $transaction)
 						<tr>
-							<td>{{ $position->symbol }}</td>
-							<td>{{ $position->shares }}</td>
-							<td>{{ $position->price }}</td>
-							<td><a href="{{ action('PositionsController@edit', $position->id) }}" class="btn btn-default">Edit</a>
-							<a href="{{ action('PositionsController@delete', $position->id) }}"  class="btn btn-danger">Delete</a> </td>
+							<td>{{ $transaction->symbol }}</td>
+							<td>{{ $transaction->shares }}</td>
+							<td>{{ $transaction->price }}</td>
+							
 						</tr>
 						@endforeach
 					</tbody>
