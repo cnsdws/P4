@@ -6,9 +6,9 @@ class PositionsController extends BaseController {
 	*/
 	public function index()
 	{
-		
-		// Show a listing of games.
-		$positions = Position::all();
+		$user = Auth::id();
+		// Show a listing of stocks.
+		$positions = Position::where('owner','=', Auth::user()->id)->get();
 		return View::make('index', compact('positions'));
 		// Show a listing of stock positions.
 		//return View::make('index');
@@ -23,18 +23,23 @@ class PositionsController extends BaseController {
 	public function handleCreate()
 	{
 		// Handle create position form submission.
+		$user = Auth::id();
 		$position = new Position;
 		$transaction = new Transaction;
 		$position->symbol = Input::get('symbol');
 		$position->shares = Input::get('shares');
 		$position->price = Input::get('price');
 		$position->target = $position->price * 1.1;
+		$position->owner = $user;
+
 		$position->save();
 		$transaction->symbol = Input::get('symbol');
 		$transaction->shares = Input::get('shares');
 		$transaction->price = Input::get('price');
 		$transaction->type = "BUY";
+		$transaction->owner = $user;
 		$transaction->save();
+		
 
 		return Redirect::action('PositionsController@index');
 	}
@@ -48,11 +53,21 @@ class PositionsController extends BaseController {
 	public function handleEdit()
 	{
 		// Handle edit form submission.
+		$user = Auth::id();
 		$position = Position::findOrFail(Input::get('id'));
 
+		$transaction = new Transaction;
 		$position->symbol = Input::get('symbol');
 		$position->shares = Input::get('shares');
 		$position->price = Input::get('price');
+
+		$transaction->symbol = Input::get('symbol');
+		$transaction->shares = Input::get('shares');
+		$transaction->price = Input::get('price');
+		$transaction->type = "UPD";
+		$transaction->owner = $user;
+		
+		$transaction->save();
 		$position->save();
 
 		return Redirect::action('PositionsController@index');
@@ -69,6 +84,7 @@ class PositionsController extends BaseController {
 	public function handleDelete()
 	{
 		// Handle the delete confirmation.
+		$user = Auth::id();
 		$id = Input::get('position');
 		$position = Position::findOrFail($id);
 		
@@ -77,6 +93,7 @@ class PositionsController extends BaseController {
 		$transaction->shares = $position->shares ;
 		$transaction->price = $position->price ;
 		$transaction->type = "SELL";
+		$transaction->owner = $user;
 		$transaction->save();
 		$position->delete();
 

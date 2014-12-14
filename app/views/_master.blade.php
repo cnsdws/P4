@@ -46,6 +46,12 @@
         <a href="{{ action('PositionsController@index') }}" class="navbar-brand">Stock Positions</a>
         <a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Position</a>
         <a href="{{ action('TransactionsController@listTransactions') }}" class="navbar-brand">List Transactions</a>
+        
+        @if(Auth::check())
+        <a href='/p4/public/logout'>Log out {{ Auth::user()->email; }}</a>
+        @else 
+        <a href='/p4/public/signup'>Sign up</a> or <a href='/p4/public/login'>Log in</a>
+        @endif
       </div>
       </div>
   </div>
@@ -59,12 +65,17 @@
         <ul class="media-list">
           <li class="media">
             <div class="media-body">
+              @if(Session::get('flash_message'))
+              <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+              @endif
               
-		            @yield('Index')
-                @yield('Create')
-                @yield('Edit')
-                @yield('Delete')
-                @yield('Transactions')
+		          @yield('Index')
+              @yield('Create')
+              @yield('Edit')
+              @yield('Delete')
+              @yield('Transactions')
+              @yield('Signup')
+              @yield('Login')
 	              
                      
             </div>

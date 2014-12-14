@@ -14,6 +14,7 @@
 				
 		<form action="{{ action('PositionsController@handleDelete') }}" method="post" role="form">
 			<input type="hidden" name="position" value="{{ $position->id }}" />
+			<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 			<input type="submit" class="btn btn-danger" value="Yes" />
 			<a href="{{ action('PositionsController@index') }}" class="btn btn-default">Cancel</a>
 		</form>

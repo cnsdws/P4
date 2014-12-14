@@ -12,6 +12,8 @@
 
     	<form action="{{ action('PositionsController@handleCreate') }}" method="post" role="form">
 
+    		<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+
 			<div class="form-group">
 				{{ Form::input('text', 'symbol', null, ['size' => '5', 'maxlength'=>'6']) }}
 				{{ Form::label('symbol','Stock Symbol') }}

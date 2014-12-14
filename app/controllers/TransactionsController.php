@@ -8,7 +8,7 @@ class TransactionsController extends BaseController {
 	{
 		
 		// Show a listing of transactions.
-		$transactions = Transaction::all();
+		$transactions = Transaction::where('owner','=', Auth::user()->id)->get();
 		return View::make('listTransactions', compact('transactions'));
 		
 	}
