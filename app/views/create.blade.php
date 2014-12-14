@@ -3,10 +3,14 @@
 @section('css')
 <link href="../public/css/bootstrap.css" rel="stylesheet">
 @stop
-
+<br>
+<br>
 @section('Create')
+	@foreach($errors->all() as $message) 
+    <div class='error'>{{ $message }}</div>
+	@endforeach
 
-<h1 class="media-heading">Project 4 - Stock Tracker</h1>
+<!-- <h1 class="media-heading">Project 4 - Stock Tracker</h1> -->
     <!-- Main page section for create position -->
     <h2>Add a new Stock Position</h2>
 

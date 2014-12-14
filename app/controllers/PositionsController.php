@@ -32,6 +32,22 @@ class PositionsController extends BaseController {
 		$position->target = $position->price * 1.1;
 		$position->owner = $user;
 
+		$rules = array(
+			    'symbol' => 'required|alpha',
+    			'shares' => 'required|min:1|numeric',
+    			'price' => 'required|min:1|max:9999|numeric'   
+			);          
+
+			$validator = Validator::make(Input::all(), $rules);
+
+			if($validator->fails()) {
+
+    		return Redirect::to('/create')
+        		->with('flash_message', 'Create Position failed; please fix the errors listed below.')
+        		->withInput()
+        		->withErrors($validator);
+        	}
+
 		$position->save();
 		$transaction->symbol = Input::get('symbol');
 		$transaction->shares = Input::get('shares');
@@ -60,6 +76,22 @@ class PositionsController extends BaseController {
 		$position->symbol = Input::get('symbol');
 		$position->shares = Input::get('shares');
 		$position->price = Input::get('price');
+
+		$rules = array(
+			    'symbol' => 'required|alpha',
+    			'shares' => 'required|min:1|numeric',
+    			'price' => 'required|min:1|numeric'   
+			);          
+
+			$validator = Validator::make(Input::all(), $rules);
+
+			if($validator->fails()) {
+
+    		return Redirect::to('/')
+        		->with('flash_message', 'Edit Position failed; please fix the errors listed below.')
+        		->withInput()
+        		->withErrors($validator);
+        	}
 
 		$transaction->symbol = Input::get('symbol');
 		$transaction->shares = Input::get('shares');

@@ -5,10 +5,14 @@
 @stop
 
 @section('Index')
+	@foreach($errors->all() as $message) 
+    <div class='error'>{{ $message }}</div>
+	@endforeach
 
-<h1 class="media-heading">Project 4 - Stock Tracker</h1>
+<!-- <h1 class="media-heading">Project 4 - Stock Tracker</h1> -->
     <!-- Main page section for the Lorem text generator -->
-    
+    <br>
+    <br>
         <h3>Stock Portfolio Management</h3>
             
             @if ($positions->isEmpty())
