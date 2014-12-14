@@ -10,12 +10,7 @@
     <!-- Main page section for the Lorem text generator -->
         <h3>Stock Portfolio Management</h3>
             
-            <p>
-            <a href="{{ action('PositionsController@create') }}" class="btn btn-primary">Create Position</a>
-            <p>
-             
-
-             @if ($positions->isEmpty())
+            @if ($positions->isEmpty())
 				<p>There are no stock positions! </p>
 
 			@else
@@ -35,9 +30,8 @@
 							<td>{{ $position->symbol }}</td>
 							<td>{{ $position->shares }}</td>
 							<td>{{ $position->price }}</td>
-							<td>{{ $position->id }}</td>
 							<td><a href="{{ action('PositionsController@edit', $position->id) }}" class="btn btn-default">Edit</a>
-								<a href="{{ action('PositionsController@delete', $position->id) }}"  class="btn btn-danger">Delete</a> </td>
+							<a href="{{ action('PositionsController@delete', $position->id) }}"  class="btn btn-danger">Delete</a> </td>
 						</tr>
 						@endforeach
 					</tbody>

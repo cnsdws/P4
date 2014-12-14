@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>dennisstevens.me</title>
-    <link href="../public/css/bootstrap.css" rel="stylesheet">
-
+    @yield('css')
     <!-- Bootstrap -->
-    <link href="../public/css/bootstrap.css" rel="stylesheet">
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,6 +44,7 @@
           </ul>
         </div><!--/.nav-collapse -->
         <a href="{{ action('PositionsController@index') }}" class="navbar-brand">Stock Positions</a>
+        <a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Position</a>
       </div>
   </div>
     <br>
