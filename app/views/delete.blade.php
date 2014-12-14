@@ -6,8 +6,9 @@
 
 @section('Delete')
 
-<h1 class="media-heading">Project 4 - Stock Tracker</h1>
-    <!-- Main page section for the Lorem text generator -->
+ <br>
+ <br>
+    <!-- Main page section for deleting a position -->
         <h3>Stock Portfolio Management</h3>
 
 		<h4>Delete {{ $position->symbol }} <small>Are you sure?</small></h4>

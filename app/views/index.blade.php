@@ -9,8 +9,8 @@
     <div class='error'>{{ $message }}</div>
 	@endforeach
 
-<!-- <h1 class="media-heading">Project 4 - Stock Tracker</h1> -->
-    <!-- Main page section for the Lorem text generator -->
+
+    <!-- Main page section for stock positions listing -->
     <br>
     <br>
         <h3>Stock Portfolio Management</h3>

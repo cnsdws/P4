@@ -6,7 +6,7 @@
 <br>
 <br>
 @section('Signup')
-
+	<!-- Sign up page -->
 	<h2>Sign up</h2>
 
 	@foreach($errors->all() as $message) 

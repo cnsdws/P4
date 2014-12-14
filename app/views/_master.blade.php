@@ -65,10 +65,11 @@
         <ul class="media-list">
           <li class="media">
             <div class="media-body">
+
               @if(Session::get('flash_message'))
               <div class='flash-message'>{{ Session::get('flash_message') }}</div>
               @endif
-              
+              <!-- Yield to various viewer blades -->
 		          @yield('Index')
               @yield('Create')
               @yield('Edit')
