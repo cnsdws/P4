@@ -48,9 +48,9 @@
         <a href="{{ action('TransactionsController@listTransactions') }}" class="navbar-brand">List Transactions</a>
         
         @if(Auth::check())
-        <a href='/p4/public/logout'>Log out {{ Auth::user()->email; }}</a>
+        <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
         @else 
-        <a href='/p4/public/signup'>Sign up</a> or <a href='/p4/public/login'>Log in</a>
+        <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
         @endif
       </div>
       </div>
