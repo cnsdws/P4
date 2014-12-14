@@ -20,6 +20,9 @@
 							<th>Symbol</th>
 							<th>Shares</th>
 							<th>Price</th>
+							<th>Type</th>
+							<th>Date Created</th>
+							<th>Last Updated</th>
 						</tr>
 					</thead>
 
@@ -29,6 +32,9 @@
 							<td>{{ $transaction->symbol }}</td>
 							<td>{{ $transaction->shares }}</td>
 							<td>{{ $transaction->price }}</td>
+							<td>{{ $transaction->type }}</td>
+							<td>{{ $transaction->created_at }}</td>
+							<td>{{ $transaction->updated_at }}</td>
 							
 						</tr>
 						@endforeach

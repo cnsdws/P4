@@ -24,10 +24,17 @@ class PositionsController extends BaseController {
 	{
 		// Handle create position form submission.
 		$position = new Position;
+		$transaction = new Transaction;
 		$position->symbol = Input::get('symbol');
 		$position->shares = Input::get('shares');
 		$position->price = Input::get('price');
+		$position->target = $position->price * 1.1;
 		$position->save();
+		$transaction->symbol = Input::get('symbol');
+		$transaction->shares = Input::get('shares');
+		$transaction->price = Input::get('price');
+		$transaction->type = "BUY";
+		$transaction->save();
 
 		return Redirect::action('PositionsController@index');
 	}
@@ -64,6 +71,13 @@ class PositionsController extends BaseController {
 		// Handle the delete confirmation.
 		$id = Input::get('position');
 		$position = Position::findOrFail($id);
+		
+		$transaction = new Transaction;
+		$transaction->symbol = $position->symbol ;
+		$transaction->shares = $position->shares ;
+		$transaction->price = $position->price ;
+		$transaction->type = "SELL";
+		$transaction->save();
 		$position->delete();
 
 		return Redirect::action('PositionsController@index');

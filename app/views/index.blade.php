@@ -19,7 +19,8 @@
 						<tr>
 							<th>Symbol</th>
 							<th>Shares</th>
-							<th>Price</th>
+							<th>Purchase Price</th>
+							<th>Target Price</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -30,6 +31,7 @@
 							<td>{{ $position->symbol }}</td>
 							<td>{{ $position->shares }}</td>
 							<td>{{ $position->price }}</td>
+							<td>{{ $position->target}}</td>
 							<td><a href="{{ action('PositionsController@edit', $position->id) }}" class="btn btn-default">Edit</a>
 							<a href="{{ action('PositionsController@delete', $position->id) }}"  class="btn btn-danger">Delete</a> </td>
 						</tr>
