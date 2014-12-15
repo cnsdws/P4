@@ -1,3 +1,32 @@
+Project 4 - Stock Position Manager
+
+Live URL
+http://p4.dennisstevens.me
+
+Github URL
+https://github.com/cnsdws/P4
+
+Description
+This website is used to create stock positions in a portfolio and store them in a database. The initial create transaction also calculates a target sell price for the stock assuming a 10% increase in the price of the stock.
+
+For each creat, update or delete action, the transaction is also recorded in a transactions database as Buy, UPD (update) or Sell (delete). The complete history of transactions can be viewed as well so that the transaction history is maintained.
+
+The website does require a user name and password. One of which is provided below. Individuals may also sign up on the site and create their own.
+
+The website is based on a Laravel framework and uses a mysql database.
+
+Demo
+Demo URL: http://screencast.com/t/2ZrjNr2O
+
+Details for teaching team
+Live URL
+http://p4.dennisstevens.me
+Uname: jharvard
+pwd: crimson
+
+
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
